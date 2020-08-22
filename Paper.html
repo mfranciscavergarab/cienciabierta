@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Paula Larenas, María Francisca Vergara, Carolina Astudillo, Javiera Urrutia" />
+
+
+<title>Efectos de factores socioeconómicos del colegio, sobre promedios de puntajes SIMCE 2013 de segundos medios de la Región Metropolitana.</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Estudio sobre SIMCE 2013 en RM</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Paper.html">Paper</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Efectos de factores socioeconómicos del colegio, sobre promedios de puntajes SIMCE 2013 de segundos medios de la Región Metropolitana.</h1>
+<h4 class="author">Paula Larenas, María Francisca Vergara, Carolina Astudillo, Javiera Urrutia</h4>
+<h4 class="date">21 de agosto 2020</h4>
+
+</div>
+
+
+<div id="abstract" class="section level2">
+<h2><em>Abstract</em></h2>
+<p>El presente estudio tratará el problema de la incidencia de los factores socioeconómicos del establecimiento sobre los resultados promedio de la prueba SIMCE 2013 de segundos medios de la Región Metropolitana, cuyo análisis girará en torno a la pregunta ¿En qué medida varían los resultados de los puntajes SIMCE de matemáticas y lenguaje de estudiantes de 2° medio, respecto a la variación del nivel socioeconómico y la dependencia administrativa del establecimiento? Para ello se utilizará la base de datos SIMCE del año 2013, que contempla una muestra de 1045 colegios, y se le aplicarán técnicas de alcance estadístico correlacional y multivariado, donde por medio de correlaciones simples y múltiples se concluye la existencia de una fuerte incidencia del nivel socioeconómico de la institución en los resultados SIMCE, sin ser estadísticamente significativa la dependencia administrativa de esta.</p>
+</div>
+<div id="introducción" class="section level2">
+<h2><em>1.Introducción</em></h2>
+<p>La desigualdad socioeconómica es una problemática latente en Chile, que lejos de acabarse, continúa permeando todas las esferas de la vida social, afectando en la distribución barrial, la inserción laboral y el acceso a un buen servicio de salud y educación, entre otros. La presente investigación se erige sobre este último ámbito -la educación-, pues “uno de los espacios sociales en donde se evidencia con mayor fuerza la diferenciación social y el desigual ejercicio de derechos es en la educación primaria y secundaria” <span class="citation">(Madero, 2011, p. 2)</span>, por lo que el enfoque de esta, radicará en las influencias que ejerce la desigual distribución de recursos escolares sobre los resultados de la prueba SIMCE, ya que “la mayor parte de los estudios referidos a este tema, evidencian resultados estructurados en función de la clase social” <span class="citation">(Madero, 2011, p. 1)</span> Por otro lado, no deja de ser importante tener en cuenta que la desigualdad en temas educativos en Chile cobra especial relevancia, “ya que es imposible pensar un ejercicio informado de la ciudadanía y un control popular de la tecnocracia sin que ese pueblo tenga niveles considerables de educación” <span class="citation">(García-Huidobro &amp; Belleï, 2003, p. 2)</span>, además se debe considerar que “esta meta se hace todavía más trascendente en un contexto donde se ha impuesto la utilización del mercado, como el instrumento de asignación de bienes tan determinantes en la calidad de vida de las personas como el salario, las prestaciones de salud, de previsión social entre otras”. <span class="citation">(García-Huidobro &amp; Belleï, 2003, p. 2)</span>.</p>
+<p>De acuerdo a ello, cabe preguntarse ¿En qué medida varían los resultados de los puntajes SIMCE de matemáticas y lenguaje de estudiantes de 2° medio, respecto a la variación del nivel socioeconómico y la dependencia administrativa del establecimiento? Frente a lo cual surge el argumento central de este estudio o hipótesis alternativa, el que afirma que los resultados de los puntajes SIMCE de matemáticas y lenguaje aumentan en cuanto el nivel socioeconómico es mayor y la dependencia administrativa se encuentra más desligada del Estado.</p>
+<p>En este sentido, el argumento principal tiene su enfoque en la variable dependiente que son los resultados promedios de la prueba SIMCE de matemática y lenguaje de los segundos medios de la Región Metropolitana del año 2013. Esta corresponde al actual Sistema de medición de la calidad de la educación, cuya primera evaluación se realizó en 1988 a nivel nacional <span class="citation">(Agencia de calidad de la educación, 2020)</span>. Sin embargo, ha sido una prueba estandarizada controversial desde sus inicios por diferentes motivos, dentro de los que se encuentra “la estigmatización que sufren los profesores, directores y estudiantes de los establecimientos que obtienen bajos resultados, los que coinciden en gran medida con los establecimientos más pobres” <span class="citation">(Ortiz, 2010, p. 2)</span>, además de que se afirma que la prueba ha perdido su sentido inicial, pues “por las características del sistema de medición SIMCE, sus resultados por sí mismos nos dicen poco acerca de la calidad de los establecimientos educacionales, y nos dicen mucho sobre la inequidad de nuestra sociedad y la alta segmentación socioeconómica que se ha instalado en nuestro sistema escolar durante los últimos años” <span class="citation">(Redondo et al., 2006, p. 7)</span></p>
+<p>Por otro lado, la primera variable independiente, se toma en cuenta el grupo socioeconómico al que pertenece el establecimiento, “el que los divide en cinco grupos (bajo, medio bajo, medio, medio alto y alto), de acuerdo al ingreso, la escolaridad y el índice de vulnerabilidad promedio del establecimiento” <span class="citation">(Agencia de calidad de la educación, 2014, p. 14)</span>, pues según variados estudios ha sido posible demostrar que corresponde a una característica contextual, que afecta el desempeño de los estudiantes y por tanto es uno de los más importantes a tomar en cuenta. Así mismo, en una tesis doctoral se afirma que “una constante en todos los países es el hecho de que el rendimiento, con mayor o menor fuerza viene influido por el nivel socioeconómico” <span class="citation">(García, 2015)</span>.</p>
+<p>En cuanto a la segunda variable independiente, dependencia administrativa, Drago y Paredes <span class="citation">(2011, p. 2)</span> afirman que “el hecho de que existan grandes y sistemáticas diferencias incondicionales en los tests estandarizados por tipo de escuelas no es suficiente para sugerir que la calidad provista es distinta”, por lo que no podría sugerirse que la dependencia administrativa sea un factor absolutamente determinante por sí solo en los resultados académicos de los establecimientos. Sin embargo, diversos estudios, han concluido -a partir de la evidencia- que, si bien la dependencia administrativa en los resultados académicos no es concluyente, si es un factor importante asociado al desempeño académico <span class="citation">(Mizala &amp; Torche, 2012; Torche, 2005)</span>, es por esto que para esta investigación se considerará el factor dependencia y se controlarán los resultados a través de este.</p>
+<p>De acuerdo a lo expresado, la profundización en el análisis de estas variables aporta como instrumento para la evaluación de cómo se mide la educación chilena, y las posibles futuras proyecciones orientadas en el mejoramiento de políticas educativas, enriqueciendo el debate sobre qué tipo de educación es la que se necesita en Chile, los objetivos que debe perseguir y sobre qué instrumentos debería medirse su calidad.</p>
+</div>
+<div id="hipótesis-y-objetivos" class="section level2">
+<h2><em>2.Hipótesis y objetivos</em></h2>
+<p>Teniendo en cuenta la pregunta de investigación y la hipótesis central, se desglosa como objetivo general dar cuenta del aumento de los resultados SIMCE en lenguaje y matemáticas respecto a un mayor nivel socioeconómico y una dependencia administrativa privada; y junto a ello dos hipótesis y objetivos específicos. Primero, y con el objetivo de observar la influencia de la variable dependencia en la regresión entre el nivel socioeconómico y los puntajes SIMCE, se afirmará que al incorporar la variable dependencia del colegio a la regresión entre el nivel socioeconómico y los resultados SIMCE, se generarán diferencias significativas. El segundo, en miras de demostrar el énfasis que colegios privados les otorgan a los aprendizajes en matemáticas, se asevera que la influencia del nivel socioeconómico de los establecimientos sobre los puntajes SIMCE será mayor en la prueba matemáticas que en la de lenguaje.</p>
+</div>
+<div id="metodología" class="section level2">
+<h2><em>3.Metodología</em></h2>
+<p>Dado que el objetivo es demostrar la variación de la variable dependiente “resultados SIMCE de lenguaje y matemáticas” respecto a la variación de las variables independientes “Nivel socioeconómico del establecimiento” y “Dependencia administrativa del establecimiento”, el estudio tiene un alcance multivariado. Para ello se utilizará la base de datos SIMCE de estudiantes de segundo medio del año 2013 de la Región Metropolitana, cuya muestra es de 1045 datos y de la cual se escogen cuatro variables principales: las variables dependientes “Puntaje promedio en Comprensión de Lectura” (PROM_LECT), y “Puntaje promedio en Matemática” (PROM_MAT) y las variables independientes “Grupo socioeconómico del establecimiento”, constituida por 5 niveles: Bajo (1), Medio Bajo (2), Medio (3), Medio Alto (4) y Alto (5) y el “Tipo de dependencia del establecimiento” (DDCIA), la cual originalmente consta de cinco categorías, pero para efectos del estudio -y para reducir complejidad- será acotada a tres (DDCIA.rec): Municipal (M), Particular subvencionado (PS) y Particular pagado (PP). Cabe mencionar que ambas variables independientes serán operacionalizadas como variables categóricas, dejando como categoría de referencia, en el primer caso, al grupo socioeconómico “Bajo (1)” y, en un segundo caso, a la dependencia administrativa “Municipal (M)”.</p>
+<p>En cuanto a una descripción univariada de las variables dependientes, se observa que el promedio de los puntajes de lenguaje son 257 puntos, con un mínimo de 170 y un máximo de 341 puntos, mientras que los promedios de los puntajes en el SIMCE de matemáticas son 274 puntos, con un mínimo de 177 y un máximo de 379, presentándose una pequeña diferencia positiva en comparación con los puntajes de lenguaje.</p>
+<p>Sobre el grupo socioeconómico, está dividido en 5 categorías, donde la mayor cantidad de establecimientos se encuentra en el grupo “Medio Bajo” con una frecuencia absoluta de 286, seguido del grupo “Medio” con 235 colegios, encontrándose el grupo “Bajo” con la menor cantidad, con un número de 120.</p>
+<p>Finalmente, la variable de dependencia administrativa, al ser operacionalizada en tres categorías, la mayor cantidad de establecimientos son particular subvencionado (PS) con 608 instituciones, un número significativamente mayor a los establecimientos municipales y privados, cuya frecuencia absoluta de ambos es de 199.</p>
+<p>Para efectos del análisis de datos, se utilizan las técnicas de estadísticas multivariadas de regresión lineal simple y múltiple mediante el programa RStudio. En primer lugar, se observará la correlación entre la variable dependiente PROM_MAT y las independientes GRUPO y DDCIA.rec, por lo que se excluye de la base de datos la segunda variable dependiente PROM_LECT, la cual se puede observar en el Gráfico 1. Realizada la correlación, se procede a generar dos regresiones simples con ambas variables independientes (operacionalizadas como dummy), para posteriormente realizar una regresión múltiple entre las ya mencionadas tres variables, con el fin de demostrar la hipótesis alternativa presentada. Este mismo ejercicio estadístico se repetirá con la segunda variable dependiente, PROM_LECT, para finalmente hacer una comparación de modelos con los resultados y corroborar la hipótesis planteada que afirma una mayor influencia del nivel socioeconómico en los puntajes de matemáticas por sobre los de lenguaje.</p>
+<div id="estadísticos-descriptivos" class="section level3">
+<h3><em>Estadísticos descriptivos</em></h3>
+<pre class="r"><code>view(dfSummary(SIMCE_1, headings=FALSE), file= &quot;./Output/Images/descriptivos.html&quot;)</code></pre>
+<pre><code>## Output file written: C:\Users\maver\Documents\cienciabierta\Output\Images\descriptivos.html</code></pre>
+<pre class="r"><code>webshot(&quot;./Output/Images/descriptivos.html&quot;, &quot;./Output/Images/descriptivos.png&quot;)</code></pre>
+<p><img src="Paper_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="correlación" class="section level3">
+<h3><em>Correlación</em></h3>
+<p><img src="Paper_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="regresión-múltiple" class="section level3">
+<h3><em>Regresión múltiple</em></h3>
+<table style="border-collapse:collapse; border:none;">
+<tr>
+<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
+ 
+</th>
+<th colspan="1" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+Modelo 1
+</th>
+<th colspan="1" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+Modelo 2
+</th>
+<th colspan="1" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+Modelo 3
+</th>
+</tr>
+<tr>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">
+Predictores
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+ß
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+ß
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+ß
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+(Intercept)
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+214.75 <sup>***</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+237.28 <sup>***</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+214.39 <sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+GRUPO [2]
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+26.46 <sup>***</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+26.12 <sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+GRUPO [3]
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+62.54 <sup>***</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+62.01 <sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+GRUPO [4]
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+87.97 <sup>***</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+87.89 <sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+GRUPO [5]
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+112.02 <sup>***</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+118.17 <sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+DDCIA.rec [2]
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+31.56 <sup>***</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+1.02 <sup></sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+DDCIA.rec [3]
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+86.93 <sup>***</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-6.23 <sup></sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">
+Observations
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">
+1004
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">
+1004
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">
+1004
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+R<sup>2</sup> / R<sup>2</sup> adjusted
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+0.593 / 0.592
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+0.328 / 0.327
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+0.594 / 0.591
+</td>
+</tr>
+<tr>
+<td colspan="4" style="font-style:italic; border-top:double black; text-align:right;">
+<ul>
+<li>p&lt;0.05   ** p&lt;0.01   *** p&lt;0.001
+</td>
+</tr></li>
+</ul>
+</table>
+</div>
+</div>
+<div id="análisis-de-datos" class="section level2">
+<h2><em>5.Análisis de datos</em></h2>
+<div id="gráfico-1" class="section level3">
+<h3><em>Gráfico 1</em></h3>
+<p>El gráfico N°1, muestra la intensidad de las correlaciones entre las variables grupo, promedio matemática y dependencia administrativa. En cuanto a las variables grupo y promedio matemática, esta es de 0,77, lo que, en la escala de correlación de Pearson, se traduce en una correlación positiva alta, por lo que se concluye que la variable que hace alusión al grupo socioeconómico del establecimiento, guarda estrecha correlación con los promedios obtenidos en el SIMCE de matemática. En cuanto a las variables independientes grupo y dependencia administrativa, la correlación de esta es de 0,75, la cual igualmente es una correlación positiva y alta, lo que en este caso se traduce como la existencia de una colinialidad, una correlación fuerte entre variables independientes. Por último, se tiene la correlación de las variables promedio matemática y dependencia administrativa, la cual es de 0,56, siendo una correlación positiva moderada, por lo que sí existe una relación entre el puntaje promedio obtenido en el SIMCE de matemática respecto a la dependencia administrativa a la que pertenece el establecimiento.</p>
+</div>
+<div id="tabla-1" class="section level3">
+<h3><em>Tabla 1</em></h3>
+<p>En la tabla n°1 se visualizan los tres modelos de regresión aplicados a la variable dependiente “promedio de matemática”. En el primer modelo se aplicó la regresión simple con la variable “grupo socioeconómico”, donde el intercepto de dicha regresión, es decir, la cantidad de puntaje base que un colegio obtendría sin importar su nivel socioeconómico, es de 215 puntos aproximadamente. En cuanto a los coeficientes de regresión, se observa un aumento de los coeficientes a medida que aumenta el grupo al que se pertenece -en relación con el grupo de referencia “Bajo”-, lo que se traduce como un aumento de los puntajes obtenidos en el SIMCE mientras más alto estés ubicado socioeconómicamente. De este modo, es que un establecimiento perteneciente al nivel “Medio Bajo” obtendrá 26, 46 puntos más que un establecimiento de un nivel “Bajo”, mientras que un colegio de un nivel “Alto” obtendrá 112,02 puntos más que el de nivel “Bajo”, con un 99% de confianza en ambos casos. La segunda regresión simple, que trabaja con la variable independiente “dependencia administrativa”, es presentada en el segundo modelo. En este caso el intercepto es de 237 puntos aproximadamente, es decir, se parte de la base de 237 puntos obtenidos. Aquí, los coeficientes de regresión también presentan un aumento a medida que aumenta la desvinculación con el Estado, donde una institución particular-subvencionada obtendrá 31,56 puntos más que una institución municipal, mientras que un colegio privado obtendrá 86,96 puntos más que un colegio municipal, ambos casos con un 99% de confianza. Cabe mencionar que al analizar el r^2, se observa que este explica solo el 33% de la varianza de la variable dependiente, mientras que el modelo número uno explicaría el 59% de dicha varianza, permitiendo considerar, preliminarmente, que la pertenencia a un grupo socioeconómico tendría mayor incidencia en los puntajes SIMCE que la vinculación administrativa de los establecimientos. Finalmente, el tercer modelo representa la regresión múltiple que toma en cuenta ambas variables independientes ya trabajadas. Aquí, con respecto a la variable de “grupo socioeconómico”, no se visualizan mayores diferencias en relación con el primer modelo, salvo una tendencia a disminuir levemente los coeficientes de regresión de cada grupo (con excepción del último). Sin embargo, es al observar la variable de dependencia controlada por grupo económico donde se evidencian diferencias interesantes. Hay una disminución significativa de los coeficientes de regresión en comparación con el modelo n°2, donde en el caso de las instituciones particular-subvencionadas se pasa de 31,56 puntos a 1.02, y en el caso de los establecimientos privados se pasa de 86,93 a -6,23 puntos, donde, de todas formas, en ningún caso los coeficientes presentan valores estadísticamente significativos. De igual manera es interesante observar cómo el valor de r^2 -y el valor de r^2 adj.- no varía en relación con el modelo número uno, lo que, en conjunto con el resto de los resultados analizados, permiten concluir que, efectivamente, el grupo socioeconómico explica de mejor manera la varianza de la variable independiente, y que la variación que dice explicar la dependencia administrativa en el modelo de regresión simple, ya está siendo explicada por la primera, por lo que no se presenta una incidencia estadísticamente significativa en la varianza de los puntajes SIMCE.</p>
+</div>
+</div>
+<div id="discusión-de-resultados" class="section level2">
+<h2><em>6.Discusión de resultados</em></h2>
+<p>A partir de las interpretaciones del Gráfico 1 y de la Tabla 1, que muestran la correlación entre variables y una regresión múltiple, respectivamente, es posible observar que existe una alta correlación entre las variables “promedio de matemáticas” y “grupo socioeconómico”, así como también entre “promedio de matemáticas” y “dependencia administrativa”; además de una colinealidad entre las variables independientes, por lo que preliminarmente se puede concluir que ambos factores económicos tendrán una significativa incidencia en los promedios de los puntajes de la prueba SIMCE. Sin embargo, al agregar al análisis la regresión múltiple realizada, se pudo dar cuenta que la influencia más significativa sobre el aumento de los puntajes es debido a la variación del nivel socioeconómico, donde aquellos colegios pertenecientes al grupo “Alto” obtienen mejores resultados que los de los grupos “Medio Bajo” y “Bajo”, lo cual corrobora y permite rechazar la hipótesis nula, aceptando entonces, el primer enunciado de la hipótesis central que afirma que los resultados de los puntajes SIMCE de matemáticas y lenguaje aumentan en cuanto el nivel socioeconómico es mayor. Pero, de acuerdo a lo interpretado del r^2 adj., no se podría afirmar que sucede lo mismo en cuanto a la dependencia administrativa del establecimiento, ya que su influencia no es estadísticamente significativa. Ello coincide con lo expresado en la introducción, en que se dice que si bien la dependencia administrativa es un factor importante a tener en cuenta al realizar un análisis de los resultados promedios del SIMCE, no es un factor tan determinante como los el grupo socioeconómico, por lo que la segunda hipótesis presentada que afirma que “al incorporar la variable dependencia del colegio a la regresión entre el nivel socioeconómico y los resultados SIMCE, se generarán diferencias significativas”, no se cumpliría.</p>
+<p>El análisis de estos resultados y la elaboración de investigaciones que aborden estas temáticas resulta de suma importancia, ya que además de problematizar un fenómeno del Chile actual, hace frente a esta realidad y permite actuar como herramienta para afrontarlo. Entender los factores asociados a los resultados SIMCE cobra especial relevancia en la medida en que esta prueba estandarizada es determinante en la medición de la calidad académica de los establecimientos y, el no comprender que los resultados de esta prueba contiene múltiples dimensiones que no necesariamente se encuentran asociadas completamente a las escuelas, como, por ejemplo, el nivel socioeconómico de los estudiantes, es negar que el problema es más bien estructural a nivel de sociedad y, por lo tanto, las políticas públicas que se emprendan en miras de solucionar estos resultados, no serán construidas en base a una mirada integral del problema de la educación en Chile, sobre todo la educación pública.</p>
+<p>En cuanto a las limitaciones del estudio, se podría decir que este carece de otras variables contextuales e individuales que pueden ser significativas al momento de relacionarlas con los puntajes promedios de los establecimientos, tales como género o situación socioeconómica de la familia de los estudiantes. Así mismo, la muestra presentada pudo haber sido más representativa si se hubiesen tomado en cuenta los demás cursos que rinden la prueba (segundo, cuarto y octavo básico). No obstante, la presente representa un aporte para futuros estudios que se refieran tanto los factores que influyen en el rendimiento de estudiantes en el SIMCE de lenguaje y matemática, como para aquellos que evalúen la viabilidad de que sea esta prueba la que se utilice para medir la calidad de la educación chilena.</p>
+</div>
+<div id="bibliografía" class="section level2 unnumbered">
+<h2><em>Bibliografía</em></h2>
+<div id="refs" class="references">
+<div id="ref-agenciadecalidaddelaeducacionFactoresAsociadosResultados2014">
+<p>Agencia de calidad de la educación. (2014). <em>Factores asociados a resultados Simce e indicadores de desarrollo personal y social 2014</em>. Agencia de Calidad de la Educación.</p>
+</div>
+<div id="ref-agenciadecalidaddelaeducacionQueEsSimce2020">
+<p>Agencia de calidad de la educación. (2020). Qué es el Simce [Pública]. In <em>Agencia de Calidad de la Educación</em>. https://www.agenciaeducacion.cl/evaluaciones/que-es-el-simce/.</p>
+</div>
+<div id="ref-dragoBrechaCalidadEducacion2011">
+<p>Drago, J. L., &amp; Paredes, R. (2011). La brecha de calidad en la educación chilena. <em>Comisión Económica Para América Latina Y El Caribe</em>, <em>104</em>(1), 167–180.</p>
+</div>
+<div id="ref-garciaNivelSocioeconomicoRendimiento2015">
+<p>García, O. (2015). <em>Nivel socioeconómico y rendimiento académico: estudiantes resilientes</em> [Doctoral]. Universidad Complutense de Madrid.</p>
+</div>
+<div id="ref-garcia-huidobroDesigualdadEducativaChile2003">
+<p>García-Huidobro, J. E., &amp; Belleï, C. (2003). Desigualdad educativa en Chile. <em>Universidad Alberto Hurtado</em>, <em>62</em>, 59.</p>
+</div>
+<div id="ref-maderoInclusionExclusionGenero2011">
+<p>Madero, I. (2011). Inclusión y exclusión de género y clase al interior de la escuela chilena en 4 comunas del sur de Chile. <em>Estudios Pedagógicos (Valdivia)</em>, <em>37</em>(2), 135–145. <a href="https://doi.org/10.4067/S0718-07052011000200008">https://doi.org/10.4067/S0718-07052011000200008</a></p>
+</div>
+<div id="ref-mizalaBringingSchoolsBack2012">
+<p>Mizala, A., &amp; Torche, F. (2012). Bringing the schools back in: The stratification of educational achievement in the Chilean voucher system. <em>International Journal of Educational Development</em>, <em>32</em>(1), 132–144. <a href="https://doi.org/10.1016/j.ijedudev.2010.09.004">https://doi.org/10.1016/j.ijedudev.2010.09.004</a></p>
+</div>
+<div id="ref-ortiz25AnosSimce2010">
+<p>Ortiz, I. (2010). 25 años del Simce. <em>Centro de Investigación Y Desarrollo de La Educación</em>, <em>1</em>, 1–7.</p>
+</div>
+<div id="ref-redondoSistemaMedicionCalidad2006">
+<p>Redondo, J., Sánchez, R., Egaña, L., González, J., Cornejo, S. R., Assaél, J., Kremerman, M., &amp; Mena, P. (2006). Sistema de medición de la calidad de la educación Simce: Balance crítico y proyecciones imprescindibles. <em>Observatorio Chileno de Políticas Educativas</em>, <em>1</em>, 17.</p>
+</div>
+<div id="ref-torchePrivatizationReformInequality2005">
+<p>Torche, F. (2005). Privatization Reform and Inequality of Educational Opportunity: The Case of Chile. <em>Sociology of Education</em>, <em>78</em>(4), 316–343. <a href="https://doi.org/10.1177/003804070507800403">https://doi.org/10.1177/003804070507800403</a></p>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
