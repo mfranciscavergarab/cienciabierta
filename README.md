@@ -7,6 +7,11 @@ La estructura de las carpetas está hecha en base al protocolo IPO.
 
 Autoras: 
 Carolina Astudillo carolinna.as98@gmail.com
+Mailen Kimelman  mailenvk@gmail.com
+Javiera Urrutia  javiera.urrutia@ug.uchile.cl
+
+Editoras: 
+Carolina Astudillo carolinna.as98@gmail.com
 Paula Larenas paula.larenas@ug.uchile.cl  
 Javiera Urrutia  javiera.urrutia@ug.uchile.cl
 María Francisca Vergara  maria.vergara.b@ug.uchile.cl
