@@ -1,0 +1,10 @@
+---
+name: "Estudio sobre SIMCE 2013 en RM"
+navbar:
+  title: "Estudio sobre SIMCE 2013 en RM"
+  left:
+  - text: "Home"
+    href: index.html
+  - text: "Paper"
+    href: Paper.html
+---
